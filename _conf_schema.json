@@ -1,0 +1,68 @@
+{
+  "enabled": {
+    "type": "bool",
+    "description": "启用饭量记账与状态注入",
+    "default": true
+  },
+  "owner_ids": {
+    "type": "list",
+    "description": "主人账号 ID（必填；只有主人私聊才会注入饭量、能用命令）",
+    "hint": "填 QQ 号等 sender_id，可填多个。留空则插件不会注入任何内容。",
+    "default": []
+  },
+  "tokens_per_bowl": {
+    "type": "int",
+    "description": "多少 token 算一碗饭",
+    "hint": "默认 50 万一碗。上下文很长的实例一轮常有几万 token，可按实际日均调整。",
+    "default": 500000
+  },
+  "daily_budget": {
+    "type": "int",
+    "description": "今日口粮（token），见底后不再长饱；填 0 表示不限",
+    "hint": "只是拟人提醒，不会真的拦截对话。建议填成自己日均消耗量的 1~1.5 倍。",
+    "default": 8000000
+  },
+  "decay_per_hour": {
+    "type": "float",
+    "description": "饱腹度每小时衰减多少",
+    "default": 3.0
+  },
+  "satiety_per_bowl": {
+    "type": "float",
+    "description": "每吃一碗涨多少饱腹度",
+    "default": 6.0
+  },
+  "feed_bowls": {
+    "type": "float",
+    "description": "一次「投喂」相当于几碗",
+    "default": 1.0
+  },
+  "count_cached": {
+    "type": "bool",
+    "description": "把命中缓存的输入 token 也算进饭量",
+    "hint": "默认不算，更贴近实际烧掉的额度。",
+    "default": false
+  },
+  "umo_contains": {
+    "type": "string",
+    "description": "只统计 umo 含此串的记录，留空表示全部",
+    "hint": "例如填 FriendMessage:123456 只算某个私聊；留空会把后台任务也算进来（更贴近「她活着就在烧 token」）。",
+    "default": ""
+  },
+  "inject_always": {
+    "type": "bool",
+    "description": "每轮主人私聊都附一行饭量状态",
+    "hint": "用临时块注入，不进 system prompt、不落历史、不影响 prompt cache。",
+    "default": true
+  },
+  "hungry_threshold": {
+    "type": "int",
+    "description": "低于这个饱腹度会提示她可以撒娇讨饭",
+    "default": 35
+  },
+  "full_threshold": {
+    "type": "int",
+    "description": "高于这个饱腹度会提示她吃撑了",
+    "default": 90
+  }
+}

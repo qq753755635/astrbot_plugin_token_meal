@@ -1,0 +1,15 @@
+name: astrbot_plugin_token_meal
+display_name: Token 饭碗
+short_desc: "把真实 token 消耗变成她的一日三餐"
+desc: "读 AstrBot 自己的 provider_stats，把每轮真实消耗的 token 折算成「饭」：饱腹度随时间衰减，聊天吃回来，饿了会撒娇讨饭，口粮见底会懂事。只读本地统计，不调外部 API、不额外跑 LLM、不生图、不发主动消息、不注册 LLM 工具。状态以临时块附在当轮消息后，不进 system prompt 也不落历史。命令：饭量 / 投喂。"
+author: qq753755635
+version: 1.0.0
+repo: https://github.com/qq753755635/astrbot_plugin_token_meal
+astrbot_version: ">=4.29.3"
+support_platforms:
+  - aiocqhttp
+social_link: https://github.com/qq753755635
+tags:
+  - token
+  - 拟人
+  - 养成
